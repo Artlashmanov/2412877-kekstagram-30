@@ -4,7 +4,7 @@ const MAX_HASHTAGS = 5;
 let errorMessage = '';
 const getErrorMessage = () => errorMessage;
 
-const REG_EXP = /^#[a-zа-яё0-9]{1,19}$/i;
+const regExplore = /^#[a-zа-яё0-9]{1,19}$/i;
 
 const validateHashtags = (hashtags) => {
   const hashtagsString = hashtags.toLowerCase().trim();
@@ -40,7 +40,7 @@ const validateHashtags = (hashtags) => {
       error: `К фото нельзя добавлять более ${MAX_HASHTAGS} хэш-тегов`
     },
     {
-      check: splitHashtags.some((hashtag) => !REG_EXP.test(hashtag)),
+      check: splitHashtags.some((hashtag) => !regExplore.test(hashtag)),
       error: 'Хэш-тег содержит запрещенные символы'
     }
   ];
